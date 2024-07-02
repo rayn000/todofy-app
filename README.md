@@ -7,11 +7,10 @@ Todofy is a single-page web application designed to manage and track your to-do 
 1. [Features](#features)
 2. [Screenshot](#screenshot)
 3. [Technologies Used](#technologies-used)
-4. [Architecture](#architecture)
-5. [Setup and Installation](#setup-and-installation)
-6. [Running the Application](#running-the-application)
-7. [Project Structure](#project-structure)
-8. [Security](#security)
+4. [Setup and Installation](#setup-and-installation)
+5. [Running the Application](#running-the-application)
+6. [Project Structure](#project-structure)
+7. [Security](#security)
 
 ## Features
 
@@ -43,21 +42,6 @@ Todofy is a single-page web application designed to manage and track your to-do 
 - **Angular 17**
 - **CSS**
 - **Angular Material**
-
-## Architecture
-
-Todofy uses a microservices architecture with two main services:
-
-1. **UserAuthenticationService**:
-   - Handles user registration and authentication.
-   - Uses MySQL for storing user credentials.
-   - Provides JWT tokens for session management.
-
-2. **TodoService**:
-   - Manages user information and their tasks.
-   - Uses MongoDB for storing tasks data.
-
-A single port is used for all backend services via Spring Cloud Gateway, facilitating smooth interaction between frontend and backend services.
 
 ## Setup and Installation
 
