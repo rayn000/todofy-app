@@ -1,0 +1,51 @@
+<div class="component-container">
+  <div class="section-name-container">
+    <h1 class="section-name">{{ todoSectionName }}</h1>
+    <div>
+      <button
+        class="add-task-btn"
+        type="button"
+        name="add-todo"
+        matRipple
+        (click)="toggleAddTodo()"
+      >
+        <img class="add-task-img" src="../../assets/icons/add-square.svg" alt="Add task">
+        Add Task
+      </button>
+    </div>
+  </div>
+
+  <!-- Overlay container for Add Task -->
+  <div class="add-todo-overlay" [ngClass]="{'is-active': isAddingTodo}">
+    <div class="add-todo-content" (click)="$event.stopPropagation()">
+      <app-add-todo *ngIf="isAddingTodo"class="todo-card" (isAdding)="closeAddTodo()"></app-add-todo>
+    </div>
+  </div>
+
+  <div class="todo-list-container">
+    @if (incompleteTodos.length === 0) {
+      <h2>No tasks due in the next 7 days</h2>
+    }
+    <ul>
+      <!-- Loop through incomplete todos -->
+      <li *ngFor="let todo of incompleteTodos" class="task" [class.completed]="todo.completed">
+        <label class="custom-checkbox">
+          <input
+            class="todo-checkbox"
+            type="checkbox"
+            (change)="toggleCompletion(todo)"
+            [checked]="todo.completed"
+            [attr.data-priority]="todo.priority" 
+          />
+          <span class="custom-checkbox-box"></span>
+        </label>
+        <p routerLink="/app/task/{{ todo.todoId }}">{{ todo.todoContent }}</p>
+        <h5 *ngIf="todo.category !== ''" class="category">{{ todo.category }}</h5>
+        <h5 *ngIf="todo.dueDate !== ''">{{ todo.dueDate | date }}</h5>
+        <a class="edit-link" routerLink="/app/task/{{ todo.todoId }}">
+          <img src="../../assets/icons/edit.svg" alt="Edit">
+        </a>
+      </li>
+    </ul>  
+  </div>
+</div>

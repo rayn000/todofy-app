@@ -1,0 +1,190 @@
+/* Container styles */
+.add-todo-container {
+  border-radius: 8px;
+  max-width: 600px;
+  min-width: 200px;
+  margin: auto;
+}
+
+/* Form header layout */
+.form-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Align icons to the right */
+  margin-bottom: 1rem;
+}
+
+/* Align icons to the right */
+.icons-right {
+  display: flex;
+  gap: 20px; /* Add space between the archive and priority icons */
+}
+
+/* Icon container */
+.icon-container {
+  position: relative;
+  display: flex;
+  align-items: center; /* Ensure icons are vertically centered */
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+/* Popup styles */
+.popup {
+  font-weight: 400;
+  position: absolute;
+  top: 30px;
+  left: 0;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+}
+
+.popup button {
+  background: none;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  text-align: left;
+  display: flex;
+  align-items: center;
+}
+
+.popup button:hover {
+  background-color: #f0f0f0;
+}
+
+.priority-option {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.priority-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+}
+
+/* Textarea styling */
+.todo-content {
+  margin-bottom: 1.5em;
+}
+
+.todo-content textarea {
+  font-family: 'Inter', Arial, sans-serif;
+  width: 100%;
+  height: 100px;
+  resize: vertical;
+  outline: none;
+  padding: 15px;
+  font-size: 0.94rem;
+  border-radius: 5px;
+  max-height: 330px;
+  caret-color: #57cc99;
+  border: 1px solid #bfbfbf;
+  box-sizing: border-box;
+  transition: border 0.3s, box-shadow 0.3s;
+  margin-right: 20px; /* Add margin between the textarea and the icons */
+}
+
+textarea::placeholder {
+  color: #b3b3b3;
+}
+
+textarea:is(:focus, :valid) {
+  padding: 14px;
+  border: 1px solid rgba(87, 204, 153, 0.5);
+}
+
+textarea::-webkit-scrollbar {
+  width: 4px;
+}
+
+textarea::-webkit-scrollbar-thumb {
+  background-color: #b3b3b3;
+  border-radius: 4px;
+}
+
+/* Flex container for Category and Due Date */
+.flex-container {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 1.5em;
+}
+
+.category-field, .due-date-field {
+  font-family: 'Inter', Arial, sans-serif;
+  flex: 1;
+}
+
+.category-field input, .due-date-field input {
+  font-size: 0.94rem;
+}
+
+/* Button styling */
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 7px;
+  font-weight: 700;
+}
+
+button[type="button"] {
+  font-size: .8rem;
+  font-weight: 400;
+}
+
+button[type="submit"],
+button[name="cancel-button"] {
+  color: #2F3E46;
+}
+
+button[type="submit"] {
+  background-color: #57CC99;
+}
+
+button[name="cancel-button"] {
+  background-color: #e3e9e6;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Error message styling */
+.error-message {
+  font-size: .7rem;
+  color: #D48686;
+}
+
+/* Calendar styling */
+::ng-deep .mat-calendar-body-selected {
+  background-color: #57CC99 !important;
+}
+
+@media (hover: hover) {
+  ::ng-deep .mat-calendar-body-cell:not(.mat-calendar-body-disabled):hover>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical) {
+    background-color: #E9F5F0 !important;
+  }
+}

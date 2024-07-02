@@ -1,0 +1,111 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="true"
+  >
+    <!-- 
+      ***** Todo Nav List *****
+     -->
+    <mat-nav-list id="nav-list">
+      <a mat-list-item routerLink="/app/all-tasks">
+        <img class="sidebar-img folder-img" src="../../assets/icons/folder-open.svg" alt="All">
+        All
+      </a>
+      <a mat-list-item routerLink="/app/today">
+        <img class="sidebar-img today-img" src="../../assets/icons/calendar-today.svg" alt="All">
+        Today
+      </a>
+      <a mat-list-item routerLink="/app/upcoming">
+        <img class="sidebar-img upcoming-img" src="../../assets/icons/calendar-upcoming.svg" alt="All">
+        Upcoming
+      </a>
+      <a mat-list-item routerLink="/app/completed">
+        <img class="sidebar-img completed-img" src="../../assets/icons/tick-square.svg" alt="All">
+        Completed
+      </a>
+      <a mat-list-item routerLink="/app/archive">
+        <img class="sidebar-img archive-img" src="../../assets/icons/archive.svg" alt="All">
+        Archive
+      </a>
+    </mat-nav-list>
+
+    <!-- 
+      ***** Category *****
+     -->
+    <mat-toolbar>
+      <h3>Category</h3>
+      <div class="arrow-btn-div">
+        <button class="arrow-btn" *ngIf="showCategory" (click)="showCategory = !showCategory">
+          <img src="../../assets/icons/arrow-down.svg" alt="arrow down">
+        </button>
+        <button class="arrow-btn" *ngIf="!showCategory" (click)="showCategory = !showCategory">
+          <img src="../../assets/icons/arrow-right.svg" alt="arrow down">
+        </button>
+      </div>
+    </mat-toolbar>
+
+    <!-- 
+      ***** Todo List by Category *****
+     -->
+    <mat-nav-list id="nav-list">
+      @if (showCategory) {
+        <a mat-list-item *ngFor="let todo of categoryList" routerLink="/app/category/{{ todo }}">
+          <img class="sidebar-img tag-img" src="../../assets/icons/tag.svg" alt="All">
+          {{ todo }}
+        </a>
+      }
+    </mat-nav-list>
+    <mat-nav-list class="spacer"></mat-nav-list>
+
+    <!-- 
+      ***** Profile *****
+     -->
+    <mat-nav-list id="nav-list" class="profile-nav-list">
+      <a mat-list-item routerLink="/app/profile" class="profile">
+        <img class="profile-img" src="../../assets/icons/profile-circle.svg" alt="All">
+        <p id="profile-name" style="padding: 0; margin: 0;">{{ firstName }}</p>
+      </a>
+      <span></span>
+      <a mat-list-item matTooltip="Sign Out" [matTooltipPosition]="'above'" (click)="signOut()">
+        <img class="signout-img" src="../../assets/icons/logout.svg" alt="All">
+      </a>
+      <span></span>
+    </mat-nav-list>
+
+  </mat-sidenav>
+
+  <!-- 
+      ***** TodoSideNav Content *****
+     -->
+  <mat-sidenav-content>
+    <button
+      type="button"
+      id="sidebar-button"
+      aria-label="Toggle sidenav"
+      mat-icon-button
+      (click)="drawer.toggle()"
+    >
+      <img class="sidebar" src="../../assets/icons/sidebar-left.svg" alt="sidebar">
+    </button>
+
+    <!-- <div>
+      <button
+        class="add-task-btn"
+        type="button"
+        name="add-todo"
+        matRipple
+        routerLink="/app/addtask"
+      >
+        <img class="add-task-img" src="../../assets/icons/add-square.svg" alt="Add task">
+        Add Task
+      </button>
+    </div> -->
+
+    <router-outlet></router-outlet>
+        
+  </mat-sidenav-content>
+</mat-sidenav-container>

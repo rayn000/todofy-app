@@ -1,0 +1,246 @@
+/* Base Styles */
+.landing-page {
+  background-color: #d7efe4;
+  color: #2f3e46;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  background-color: #2f3e46;
+  color: whitesmoke;
+  box-shadow: 0 5px 20px rgba(47, 62, 70, 0.7);
+}
+
+#landing-header {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin: 0 4rem;
+  padding: 0.7rem 0;
+}
+
+#landing-header img {
+  width: 3rem;
+  height: 3rem;
+  margin-right: 0.8rem;
+}
+
+#landing-header h1 {
+  font-family: "Albert Sans", sans-serif;
+  font-weight: 500;
+  font-size: 34px;
+}
+
+#landing-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2rem 8.5rem 0 8.5rem;
+}
+
+#left-pane {
+  width: 36vw;
+  height: auto;
+}
+
+#left-pane h1 {
+  font-size: 3rem;
+  padding: 1rem 0;
+}
+
+#left-pane p {
+  font-size: 1.5rem;
+  word-spacing: 5px;
+  line-height: 32px;
+  padding: 0.5rem 0;
+}
+
+#left-pane p span {
+  text-decoration: #2f3e463e underline;
+}
+
+#right-pane img {
+  width: 40vw;
+  min-height: 25vw;
+  height: auto;
+}
+
+.btn-group .btn {
+  border: none;
+  background-color: #2f3e46;
+  color: whitesmoke;
+  font-size: 1.5rem;
+  font-weight: 500;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  margin-right: 2rem;
+  margin-top: 2rem;
+  cursor: pointer;
+  box-shadow: 5px 5px 15px rgba(47, 62, 70, 0.5);
+  transform: translate3d(0, 0.4rem, 0);
+  transition-property: transform, background-color, color;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+}
+
+.btn-group .btn:hover {
+  transform: translate3d(0, 0, 0);
+  background-color: #405865;
+  color: whitesmoke;
+}
+
+.btn-group .btn:active {
+  background-color: #cad2c5;
+  color: rgb(39, 39, 39);
+}
+
+/* Footer */
+.footer-container {
+  background-color: #22262a;
+  color: #fff;
+  font-size: 1rem;
+  padding: 2rem 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.social-links {
+  display: flex;
+  gap: 1.5rem;
+  color: #fff;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #ccc;
+}
+
+.legal-links {
+  display: flex;
+  gap: 1rem;
+  transition: color 0.3s ease;
+}
+
+/* Media Queries for Responsive Design */
+
+/* Tablets and Medium Screens */
+@media (max-width: 1024px) {
+  #landing-main {
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem 2rem 0 2rem;
+  }
+
+  #left-pane {
+    width: 80vw;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  #right-pane img {
+    width: 80vw;
+    min-height: auto;
+  }
+
+  .btn-group {
+    justify-content: center;
+  }
+
+  .btn-group .btn {
+    margin-right: 1rem;
+  }
+}
+
+/* Mobile Phones and Small Screens */
+@media (max-width: 768px) {
+  header {
+    padding: 0.5rem;
+  }
+
+  #landing-header {
+    flex-direction: column;
+    align-items: center;
+    margin: 0 2rem;
+  }
+
+  #landing-header img {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  #landing-header h1 {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  #landing-main {
+    margin: 1rem;
+  }
+
+  #left-pane {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  #left-pane h1 {
+    font-size: 2rem;
+  }
+
+  #left-pane p {
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+  }
+
+  #right-pane img {
+    width: 100%;
+    min-height: auto;
+  }
+
+  .btn-group .btn {
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+    margin-top: 1rem;
+    width: 45%;
+    padding: 0.8rem 1rem;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .social-links {
+    justify-content: center;
+    margin: 1rem 0;
+  }
+
+  .legal-links {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+/* Extra Small Screens */
+@media (max-width: 480px) {
+  .btn-group .btn {
+    font-size: 1rem;
+    padding: 0.7rem 0.8rem;
+  }
+
+  #left-pane p {
+    font-size: 1rem;
+    line-height: 1.2rem;
+  }
+}

@@ -1,0 +1,149 @@
+.sidenav-container {
+  height: 100%;
+  color: #2F3E46;
+  position: relative;
+}
+
+.sidenav {
+  width: 270px;
+  background-color: #E9F5F0;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar {
+  margin: 0 0 -15px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sidenav-disabled {
+  pointer-events: none;
+  opacity: 0.5; /* Optional: visual cue that the sidenav is disabled */
+}
+
+.arrow-btn-div {
+  margin-bottom: -10px;
+}
+
+.arrow-btn {
+  border: none;
+  border-radius: 50%;
+  padding: 5px 7px 3px 7px;
+  background-color: transparent;
+  cursor: pointer;
+  transition-property: background-color;
+}
+
+.arrow-btn:hover {
+  background-color: rgba(191, 191, 191, 0.3);
+}
+
+.arrow-btn:active {
+  background-color: rgba(87, 204, 153, 0.3);
+}
+
+#nav-list a:focus {
+  background-color: rgba(87, 204, 153, 0.3);
+  color: #2F3E46;
+}
+
+.spacer {
+  padding: 47px 0;
+}
+
+.profile-nav-list {
+  position: absolute;
+  bottom: 0;
+  padding: 0 0 40px 0;
+  display: grid;
+  grid-template-columns: 3.5fr 5px 1fr;
+  background-color: #E9F5F0;
+}
+
+#profile-name {
+  font-family: 'Albert Sans', Helvetica, sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  display: inline-block;
+}
+
+.profile-nav-list > a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-img {
+  margin-bottom: -9px;
+  padding-right: 10px;
+}
+
+.signout-img {
+  height: 24px;
+  padding: 2px;
+  padding: 0;
+  margin-top: 12px;
+}
+
+.mat-sidenav-content {
+  background-color: #fff;
+}
+
+.sidebar-img {
+  height: 22px;
+  width: 22px;
+  margin-bottom: -3px;
+  padding-right: 4px;
+}
+
+#sidebar-button {
+  position: fixed;
+  display: inline-block;
+}
+
+.add-task-btn {
+  background-color: #57CC99;
+  color: #2F3E46;
+  padding: 10px 15px;
+  font-size: 1.2rem;
+  font-weight: 700;
+
+  border: none;
+  border-radius: 10px;
+  box-shadow: 7px 7px 10px rgba(47, 62, 70, 0.25);
+  transform: translate3d(0, 0, 0);
+  transition-property: transform box-shadow;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+}
+
+.add-task-btn:hover {
+  background-color: #9feac9;
+  box-shadow: 4px 4px 10px rgba(47, 62, 70, 0.25);
+  transform: translate3d(4px, 4px, 0);
+  transition-property: transform box-shadow;
+}
+
+.add-task-btn:active {
+  background-color: #57CC99;
+}
+
+.add-task-img {
+  padding-right: .4rem;
+}
+
+
+
+
+.arrow-btn,
+.add-task-btn,
+.add-task-btn:hover {
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+}

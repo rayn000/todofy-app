@@ -1,0 +1,127 @@
+/* Container styling */
+.profile-update-container {
+  margin-left: 100px; /* Add margin to the left to position the form */
+  margin-top: 40px;
+}
+
+/* Fields container */
+.fields-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align items to the left */
+}
+
+/* Form field styling */
+.form-field {
+  width: 30rem; /* Full width for the form fields */
+  margin-bottom: 15px; /* Space between fields */
+}
+
+.input-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
+
+/* Button styling */
+.buttons {
+  display: flex;
+  gap: 70px;
+  margin-top: 20px;
+}
+
+button {
+  padding: 6px 12px;
+  font-size: 16px;
+  border-radius: 7px;
+  font-weight: 700;
+}
+
+button[type="submit"] {
+  background-color: #57CC99;
+  color: #2F3E46;
+}
+
+button[type="button"] {
+  background-color: #e3e9e6;
+  color: #2F3E46;
+}
+
+button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.separation {
+  border: none;
+  border-top: 1px solid rgba(86, 83, 83, 0.4);
+  width: 40rem;
+  margin: 7rem 0 2rem 0;
+}
+
+button[name="delete-btn"] {
+  cursor: pointer;
+  outline: 0;
+  display: inline-block;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: center;
+  background-color: transparent;
+  border: 1.7px solid transparent;
+  padding: 6px 12px;
+  font-size: 1rem;
+  border-radius: .25rem;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  color: #E57373;
+  border-color: #E57373;
+  margin-bottom: 100px;
+}
+
+button[name="delete-btn"]:hover {
+  color: #2F3E46;
+  background-color: #E57373;
+  border-color: #E57373;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+/* Enhanced typography */
+h2 {
+  text-align: left;
+  margin-bottom: 20px;
+  font-family: 'Albert Sans', Helvetica, sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 40px;
+  color: #2F3E46;
+}
+
+p {
+  font-size: 1rem;
+  color: #E57373;
+  margin-bottom: 20px;
+}
+
+a {
+  color: #38A3A5;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .profile-update-container {
+    width: 90%;
+    padding-top: 10px;
+  }
+
+  .form-field {
+    width: 100%; /* Ensure full width on smaller screens */
+    margin-bottom: 15px;
+  }
+}

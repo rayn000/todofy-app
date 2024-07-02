@@ -1,0 +1,40 @@
+<div class="component-container">
+  <div class="search-bar">
+    <app-search-todo (search)="onSearch($event)"></app-search-todo>
+  </div>
+  <div class="section-name-container">
+    <h1 class="section-name">{{ todoSectionName }}</h1>
+  </div>
+
+  <div class="todo-list-container">
+    <!-- @if (incompleteTodos.length === 0 && completedTodos.length === 0) {
+      <h2>You don't have any task here!</h2>
+    } @else if (incompleteTodos.length === 0) {
+      <p class="todo-status">Awesome! You don't have any task to complete.🎉</p>
+    } -->
+        
+    <p class="todo-status" *ngIf="completedTodos.length === 0">Complete a task to pass it here.</p>
+    <ul>
+      <!-- Loop through completed todos -->
+      <li *ngFor="let todo of completedTodos" class="task completed">
+        <label class="custom-checkbox">
+          <input
+            class="todo-checkbox"
+            type="checkbox"
+            (change)="toggleCompletion(todo)"
+            [checked]="todo.completed"
+            [attr.data-priority]="todo.priority" 
+          />
+          <span class="custom-checkbox-box"></span>
+        </label>
+        <p routerLink="/app/task/{{ todo.todoId }}">{{ todo.todoContent }}</p>
+        <h5 *ngIf="todo.category !== ''" class="category">{{ todo.category }}</h5>
+        <h5 *ngIf="todo.dueDate !== ''">{{ todo.dueDate | date }}</h5>
+        <a class="edit-link" routerLink="/app/task/{{ todo.todoId }}">
+          <img src="../../assets/icons/edit.svg" alt="Edit">
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+</div>

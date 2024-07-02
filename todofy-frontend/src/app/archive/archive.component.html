@@ -1,0 +1,20 @@
+<div class="component-container">
+  <div class="section-name-container">
+    <h1 class="section-name">{{ todoSectionName }}</h1>
+  </div>
+
+  <div class="todo-list-container">
+    <h2 *ngIf="archiveList.length === 0">You don't have any task archived.</h2>
+    <ul>
+      <!-- Loop through incomplete todos -->
+      <li *ngFor="let todo of archiveList" class="task">
+        <p routerLink="/app/task/{{ todo.todoId }}">{{ todo.todoContent }}</p>
+        <h5 *ngIf="todo.category !== ''" class="category">{{ todo.category }}</h5>
+        <h5 *ngIf="todo.dueDate !== ''">{{ todo.dueDate | date }}</h5>
+        <a class="edit-link" routerLink="/app/task/{{ todo.todoId }}">
+          <img src="../../assets/icons/edit.svg" alt="Edit">
+        </a>
+      </li>
+    </ul>  
+  </div>
+</div>

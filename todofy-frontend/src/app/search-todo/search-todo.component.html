@@ -1,0 +1,4 @@
+<form [ngClass]="{'search-box': true, 'expanded': isExpanded}">
+  <input #searchInput type="text" placeholder="Search task" class="search-input" (input)="onSearch($event)">
+  <i class="fa-solid fa-magnifying-glass search-icon" (click)="toggleSearch()"></i>
+</form>

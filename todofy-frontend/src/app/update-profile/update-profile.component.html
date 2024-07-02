@@ -1,0 +1,97 @@
+<div class="profile-update-container">
+  <div>
+    <h2>Profile</h2>
+  </div>
+  <form ngNativeValidate [formGroup]="updateUserForm" (ngSubmit)="updateUser()">
+    <div class="fields-container">
+      <!-- First Name -->
+      <mat-form-field class="form-field" appearance="outline">
+        <mat-label>Change First Name</mat-label>
+        <input
+          matInput
+          type="text"
+          formControlName="firstName"
+        />
+        <mat-error *ngIf="updateUserForm.get('firstName')?.hasError('required') && updateUserForm.get('firstName')?.touched">
+          First Name is required
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Last Name -->
+      <mat-form-field class="form-field" appearance="outline">
+        <mat-label>Change Last Name</mat-label>
+        <input
+          matInput
+          type="text"
+          formControlName="lastName"
+        />
+      </mat-form-field>
+
+      <!-- Email -->
+      <mat-form-field class="form-field" appearance="outline">
+        <mat-label>Change Email</mat-label>
+        <input
+          matInput
+          type="email"
+          formControlName="email"
+        />
+        <div matSuffix>
+          <img class="input-icon" src="../../assets/icons/email.svg" alt="Email">
+        </div>
+        <mat-error *ngIf="updateUserForm.get('email')?.hasError('required')">
+          Email is required
+        </mat-error>
+        <mat-error *ngIf="updateUserForm.get('email')?.hasError('pattern')">
+          Enter valid email address
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Password -->
+      <mat-form-field class="form-field" appearance="outline">
+        <mat-label>Change Password</mat-label>
+        <input matInput type="password" formControlName="password" />
+        <div matSuffix>
+          <img class="input-icon" src="../../assets/icons/eye.svg" alt="Eye">
+        </div>
+        <mat-error *ngIf="updateUserForm.get('password')?.hasError('required')">
+          Provide update password details
+        </mat-error>
+        <mat-error *ngIf="updateUserForm.get('password')?.errors?.['pattern']">
+          Password should have min 8 letters with at least one symbol, upper case letter and a number
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Confirm Password -->
+      <mat-form-field class="form-field" appearance="outline">
+        <mat-label>Confirm Password</mat-label>
+        <input
+          matInput
+          type="password"
+          formControlName="confirmPassword"
+        />
+        <div matSuffix>
+          <img class="input-icon" src="../../assets/icons/eye.svg" alt="Eye">
+        </div>
+        <mat-error *ngIf="updateUserForm.get('confirmPassword')?.hasError('required')">
+          Provide update password details
+        </mat-error>
+        <mat-error *ngIf="confirmPassword?.dirty && updateUserForm?.errors?.['passwordMismatch']">
+          Password does not match
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Buttons -->
+      <div class="buttons">
+        <button type="button" mat-raised-button (click)="cancelUpdate()">Cancel</button>
+        <button type="submit" mat-raised-button [disabled]="updateUserForm.invalid">Update</button>
+      </div>
+
+      <span class="separation"></span>
+
+      <p>Deleting account will immediately remove all your data! This can't be undone.</p>
+      <button type="button" matRipple name="delete-btn" (click)="deleteUser()">
+        Delete Account
+      </button>
+    </div>
+  </form>
+</div>

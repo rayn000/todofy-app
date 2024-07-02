@@ -1,0 +1,80 @@
+<div class="update-todo-container">
+  <div>
+    <h2>Update Task</h2>
+  </div>
+  <form [formGroup]="updateTaskForm" (ngSubmit)="updateTask()">
+    <div class="form-header">
+
+      <!-- Trash, Archive, Priority Icons aligned to the right -->
+      <div class="icons-right">
+        <div class="icon-container" matTooltip="Delete" [matTooltipPosition]="'above'">
+          <img src="../../assets/icons/trash-red.svg" alt="Delete task" class="delete-icon" (click)="deleteTodo()" />
+        </div>
+
+        <div class="icon-container" matTooltip="Archive" [matTooltipPosition]="'above'">
+          <img [src]="archiveIcon" alt="Archive" class="icon" (click)="toggleArchivePopup()" />
+          <div *ngIf="showArchivePopup" class="popup">
+            <button type="button" (click)="selectArchive(true)">Yes</button>
+            <button type="button" (click)="selectArchive(false)">No</button>
+          </div>
+        </div>
+
+        <div class="icon-container" matTooltip="Priority" [matTooltipPosition]="'above'">
+          <img [src]="priorityIcon" alt="Priority" (click)="togglePriorityPopup()" class="icon" />
+          <div *ngIf="showPriorityPopup" class="popup">
+            <button type="button" (click)="selectPriority('none')">
+              <img src="../../assets/icons/flag.svg" alt="None Priority" class="priority-icon" />
+              None
+            </button>
+            <button type="button" (click)="selectPriority('low')">
+              <img src="../../assets/icons/flag-blue.svg" alt="Low Priority" class="priority-icon" />
+              Low
+            </button>
+            <button type="button" (click)="selectPriority('medium')">
+              <img src="../../assets/icons/flag-yellow.svg" alt="Medium Priority" class="priority-icon" />
+              Medium
+            </button>
+            <button type="button" (click)="selectPriority('high')">
+              <img src="../../assets/icons/flag-red.svg" alt="High Priority" class="priority-icon" />
+              High
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-field todo-content">
+      <textarea id="todoContent" formControlName="todoContent" placeholder="Enter your task..."></textarea>
+      <div *ngIf="updateTaskForm.get('todoContent')?.hasError('required') && updateTaskForm.get('todoContent')?.touched" class="error-message">
+        Required
+      </div>
+    </div>
+
+    <div class="flex-container">
+      <mat-form-field class="form-field category-field" appearance="outline">
+        <mat-label>Category</mat-label>
+        <input matInput type="text" formControlName="category" />
+      </mat-form-field>
+
+      <mat-form-field class="form-field due-date-field" appearance="outline">
+        <mat-label>Due Date</mat-label>
+        <input
+          matInput
+          placeholder="mm/dd/yyyy"
+          [matDatepicker]="picker"
+          [min]="minDate"
+          formControlName="dueDate"
+          class="hidden-input"
+          id="dueDate"
+        />
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <div class="buttons">
+      <button type="button" name="cancel-button" mat-raised-button color="accent" (click)="closeAddTodo()">Cancel</button>
+      <button type="submit" mat-raised-button color="primary" [disabled]="updateTaskForm.invalid">Save</button>
+    </div>
+  </form>
+</div>
